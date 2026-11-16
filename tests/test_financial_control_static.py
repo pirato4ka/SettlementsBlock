@@ -310,10 +310,13 @@ class ControlLogicTests(unittest.TestCase):
         self.assertIn("АналитикаУчетаПоПартнерам = &Партнер", self.source)
         self.assertIn("Расчеты.СуммаОстаток", self.source)
         self.assertIn("Расчеты.ОбъектРасчетов", self.source)
-        # Отбор по типу объекта расчета делается в коде, а не оператором ССЫЛКА:
-        # состав типа измерения зависит от базы.
+        # Отбор по виду объекта расчета делается в коде, а не оператором ССЫЛКА
+        # и не сравнением с конкретным типом: состав типа зависит от базы.
         self.assertNotIn("ССЫЛКА Документ.", self.source)
-        self.assertIn('Тип("ДокументСсылка.РеализацияТоваровУслуг")', self.source)
+        self.assertNotIn('Тип("ДокументСсылка.', self.source)
+        self.assertIn("Если Не ЭтоДокумент(Выборка.ОбъектРасчетов) Тогда", self.source)
+        self.assertIn('СтрНачинаетсяС(ОбъектРасчетов.Метаданные().ПолноеИмя(), "Документ.")',
+                      self.source)
         self.assertNotIn("Расчеты.Партнер", self.source)
         self.assertNotIn("СуммаРасчетовОстаток", self.source)
 
