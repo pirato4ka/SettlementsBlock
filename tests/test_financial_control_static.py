@@ -293,8 +293,9 @@ class ControlLogicTests(unittest.TestCase):
                       self.source)
 
     def test_limit_selection_uses_date_slice_and_ignores_foreign_rules(self):
-        self.assertIn("РегистрСведений.БНС_ЗначенияЛимитов.СрезПоследних(&МоментПроверки, Активна)",
+        self.assertIn("РегистрСведений.БНС_ЗначенияЛимитов.СрезПоследних(&МоментПроверки)",
                       self.source)
+        self.assertIn("Значения.Активна", self.source)
         self.assertIn("Значения.ДействуетПо", self.source)
         self.assertIn("НЕ Значения.Лимит.ПометкаУдаления", self.source)
         # правило на партнера важнее правила на контрагента
@@ -519,6 +520,22 @@ if __name__ == "__main__":
 
 class BslSyntaxTests(unittest.TestCase):
     """Проверки, которые ловят ошибки компиляции без платформы 1С."""
+
+    ABSTRACT_TYPE_NAMES = {
+        "ДокументСсылка", "ДокументОбъект", "СправочникСсылка", "СправочникОбъект",
+        "ПеречислениеСсылка", "ПланСчетовСсылка", "ПланВидовХарактеристикСсылка",
+        "ПланВидовРасчетаСсылка", "ПланОбменаСсылка", "БизнесПроцессСсылка",
+        "ЗадачаСсылка", "ОтчетСсылка",
+    }
+
+    def test_type_descriptions_use_concrete_types(self):
+        # ОписаниеТипов("ДокументСсылка") падает в рантайме: нужен конкретный тип,
+        # например "ДокументСсылка.РеализацияТоваровУслуг".
+        for path in sorted(ROOT.rglob("*.bsl")):
+            text = path.read_text(encoding="utf-8-sig")
+            for match in re.finditer(r'Новый\s+ОписаниеТипов\(\s*"([^"]*)"', text):
+                with self.subTest(path=str(path.relative_to(ROOT)), value=match.group(1)):
+                    self.assertNotIn(match.group(1), self.ABSTRACT_TYPE_NAMES)
 
     def test_string_literals_are_balanced(self):
         # Непарная кавычка или продолжение строки без признака переноса "|"
