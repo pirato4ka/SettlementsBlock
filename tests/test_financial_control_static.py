@@ -409,6 +409,52 @@ class FormTests(unittest.TestCase):
                 self.assertIn("Элементы.Добавить", module)
                 self.assertIn("ЭтаФорма.Команды.Добавить", module)
 
+    def test_controller_comment_is_a_document_attribute(self):
+        # Комментарий решения - реквизит документа, а не реквизит формы:
+        # реквизиты формы программно не добавляются.
+        for document in self.DOCUMENTS:
+            module = module_source(
+                f"Documents/{document}/Forms/ФормаДокумента/Ext/Form/Module.bsl")
+            with self.subTest(document=document):
+                self.assertNotIn("Новый РеквизитФормы", module)
+                self.assertNotIn("ИзменитьРеквизиты", module)
+                self.assertIn('ПолеКомментария.ПутьКДанным = "Объект.БНС_КомментарийКонтролера"',
+                              module)
+                self.assertIn("БНС_ПринятьРешениеНаСервере(НовыйСтатус, "
+                              "Объект.БНС_КомментарийКонтролера)", module)
+
+    def test_client_code_does_not_use_enum_managers(self):
+        # Менеджеры перечислений недоступны в клиентском контексте:
+        # на клиенте используется ПредопределенноеЗначение().
+        for document in self.DOCUMENTS:
+            module = module_source(
+                f"Documents/{document}/Forms/ФормаДокумента/Ext/Form/Module.bsl")
+            client_parts = []
+            current = None
+            for line in module.split("\n"):
+                stripped = line.strip()
+                if stripped.startswith("&НаКлиенте"):
+                    current = []
+                    client_parts.append(current)
+                    continue
+                if stripped.startswith("&НаСервере"):
+                    current = None
+                    continue
+                if current is not None:
+                    current.append(line)
+            client_code = "\n".join("\n".join(part) for part in client_parts)
+            with self.subTest(document=document):
+                self.assertNotIn("Перечисления.", client_code)
+                self.assertIn('ПредопределенноеЗначение("Перечисление.'
+                              'БНС_СтатусыФинансовогоКонтроля.ОтгрузкаРазрешена")', client_code)
+                self.assertIn('ПредопределенноеЗначение("Перечисление.'
+                              'БНС_СтатусыФинансовогоКонтроля.ОтгрузкаЗапрещена")', client_code)
+
+    def test_comment_cannot_be_changed_without_rights(self):
+        source = module_source("CommonModules/БНС_Подписки/Ext/Module.bsl")
+        self.assertIn("Источник.БНС_КомментарийКонтролера <> "
+                      "Исходный.БНС_КомментарийКонтролера", source)
+
     def test_registered_form_events_exist_in_modules(self):
         for document in self.DOCUMENTS:
             form_xml = read(f"Documents/{document}/Forms/ФормаДокумента/Ext/Form.xml")
