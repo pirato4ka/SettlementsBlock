@@ -9,7 +9,7 @@
 					<v8:content>Финансовый контроль взаиморасчетов</v8:content>
 				</v8:item>
 			</Synonym>
-			<Comment>Лимиты дебиторской задолженности, статусы контроля, профили партнеров по каналам</Comment>
+			<Comment>Лимиты дебиторской задолженности, история настроек, статусы контроля и расшифровка запрета</Comment>
 			<IncludeHelpInContents>true</IncludeHelpInContents>
 			<IncludeInCommandInterface>true</IncludeInCommandInterface>
 			<UseOneCommand>false</UseOneCommand>
@@ -27,6 +27,8 @@
 				<xr:Item xsi:type="xr:MDObjectRef">FunctionalOption.БНС_ФинансовыйКонтроль</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.БНС_КонтрольЛимитовСервер</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.БНС_ОбщегоНазначения</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.БНС_ИсторияФинансовогоКонтроляСервер</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">CommonModule.БНС_Подписки</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Report.БНС_РасшифровкаФинансовогоКонтроля</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.БНС_ФинансовыйКонтроль_Просмотр</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.БНС_ФинансовыйКонтроль_Изменение</xr:Item>

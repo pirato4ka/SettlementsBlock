@@ -8,8 +8,16 @@
 		</Metadata>
 		<Metadata name="Catalog.БНС_ГруппыКлиентов.ObjectModule" id="a5f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="3b8e4b0d4fab63df442f40770653fcb45ad40d96"/>
 		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов" id="a6f00001-3c4d-4e5f-9a10-000000000001" configVersion="b60258c6362afee6567b5b199b21fd43578dc85e">
-			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.БНС_ОбъектКонтроля" id="a6f0000c-3c4d-4e5f-9a10-000000000001"/>
-			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.БНС_Активна" id="a6f0000e-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ОбъектКонтроля" id="a6f0000c-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Организация" id="a6f0000d-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ЛимитСуммы" id="a6f00010-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Валюта" id="a6f00011-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ДопустимаяПросрочкаДней" id="a6f00012-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ДействиеПриНарушении" id="a6f00013-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ДействуетС" id="a6f00014-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ДействуетПо" id="a6f00015-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Активна" id="a6f00016-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Комментарий" id="a6f00017-3c4d-4e5f-9a10-000000000001"/>
 		</Metadata>
 		<Metadata name="Catalog.Валюты" id="7d7563d2-c50d-40b6-95e1-2fdeecf13959" configVersion="b173d46bc3bf7c4c0787a5fd1711d8c56dd038a5"/>
 		<Metadata name="Catalog.Контрагенты" id="59a313b2-d2cc-4ddc-a4f2-03be37c9fa78" configVersion="afa6cc74a373cc9ab2357ba4fbe3f716f1ec6e84"/>
@@ -25,6 +33,8 @@
 		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента" id="947e08a3-bcbc-4a33-8e87-bb2040503d03" configVersion="bdb775a28903e7e0d6e5281018b5a53fee6abd8f"/>
 		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента.Form" id="947e08a3-bcbc-4a33-8e87-bb2040503d03.0" configVersion="38438dcf0a46189decd641f1d78affb4af9a3b70"/>
 		<Metadata name="Catalog.Пользователи" id="32a582f9-8fb9-47c2-9902-92ad7d51dedf" configVersion="6798b3fc4051996f91f749e7a3559475b5919447"/>
+		<Metadata name="CommonModule.БНС_ИсторияФинансовогоКонтроляСервер" id="a9f00005-3c4d-4e5f-9a10-000000000001"/>
+		<Metadata name="CommonModule.БНС_ИсторияФинансовогоКонтроляСервер.Module" id="a9f00005-3c4d-4e5f-9a10-000000000001.0"/>
 		<Metadata name="CommonModule.БНС_КонтрольЛимитовСервер" id="a9f00001-3c4d-4e5f-9a10-000000000001" configVersion="237417bb177f435ce484c678728fec13255b044a"/>
 		<Metadata name="CommonModule.БНС_КонтрольЛимитовСервер.Module" id="a9f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="4f74d0bb1d39bdad5475a01f636eebacddb2105e"/>
 		<Metadata name="CommonModule.БНС_ОбщегоНазначения" id="a9f00002-3c4d-4e5f-9a10-000000000001" configVersion="a22055b80318bd35d67c7e7a75ee05ea5b7fca8e"/>
@@ -138,6 +148,10 @@
 			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ДействиеПриНарушении" id="a7f00023-3c4d-4e5f-9a10-000000000001"/>
 			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ДействуетПо" id="a7f00024-3c4d-4e5f-9a10-000000000001"/>
 			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Автор" id="a7f00025-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ОбъектКонтроля" id="a7f00026-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Активна" id="a7f00027-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Комментарий" id="a7f00028-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Организация" id="a7f00029-3c4d-4e5f-9a10-000000000001"/>
 		</Metadata>
 		<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля" id="a8f00001-3c4d-4e5f-9a10-000000000001" configVersion="f05984bba88440e632b4be48f81c2e6814ef9516">
 			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Dimension.Документ" id="a8f00010-3c4d-4e5f-9a10-000000000001"/>
@@ -169,6 +183,6 @@
 		<Metadata name="StyleItem.ЦветТекстаПроблема" id="26fa6500-597d-4f2f-ad67-9c30a516b557" configVersion="a53d9a3b521476e25540b05bd780b02bc06344ef"/>
 		<Metadata name="StyleItem.ЦветФонаВыделения" id="c3ab7770-fca1-4ec6-82a5-865946e9d35b" configVersion="552eb8fd51543296a643c0e7003665eda002c2d3"/>
 		<Metadata name="Subsystem.БНС_ФинансовыйКонтроль" id="aaf00001-3c4d-4e5f-9a10-000000000001" configVersion="d98ae92aa1f385ec287f4c89a0b1c5e4571760f4"/>
-		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.ObjectModule" id="a6f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="0123456789abcdef0123456789abcdef01234567"/>
+		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.ObjectModule" id="a6f00001-3c4d-4e5f-9a10-000000000001.0"/>
 	</ConfigVersions>
 </ConfigDumpInfo>

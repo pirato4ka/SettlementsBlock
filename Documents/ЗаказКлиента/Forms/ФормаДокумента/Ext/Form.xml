@@ -242,7 +242,6 @@
 	</AutoCommandBar>
 	<Events>
 		<Event name="BeforeWrite" callType="After">БНС_ПередЗаписьюПосле</Event>
-		<Event name="BeforeWriteAtServer" callType="After">БНС_ПередЗаписьюНаСервереПосле</Event>
 		<Event name="OnCreateAtServer" callType="After">БНС_ПриСозданииНаСервереПосле</Event>
 	</Events>
 	<ChildItems>

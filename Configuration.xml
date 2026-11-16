@@ -82,6 +82,7 @@
 			<Role>БНС_ФинансовыйКонтроль_Изменение</Role>
 			<Role>БНС_ФинансовыйКонтроль_Просмотр</Role>
 			<CommonModule>БНС_КонтрольЛимитовСервер</CommonModule>
+			<CommonModule>БНС_ИсторияФинансовогоКонтроляСервер</CommonModule>
 			<CommonModule>БНС_ОбщегоНазначения</CommonModule>
 			<CommonModule>БНС_ОповещенияКлиент</CommonModule>
 			<CommonModule>БНС_Подписки</CommonModule>
