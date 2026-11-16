@@ -304,9 +304,9 @@ class ControlLogicTests(unittest.TestCase):
         self.assertIn("Приоритет = 2;", self.source)
 
     def test_debt_query_uses_the_real_register_schema(self):
-        # РасчетыСПокупателями : измерения АналитикаУчетаПоПартнерам, ОбъектРасчетов,
+        # РасчетыСКлиентами : измерения АналитикаУчетаПоПартнерам, ОбъектРасчетов,
         # Валюта; ресурс долга - Сумма (в остатках СуммаОстаток).
-        self.assertIn("РегистрНакопления.РасчетыСПокупателями.Остатки(", self.source)
+        self.assertIn("РегистрНакопления.РасчетыСКлиентами.Остатки(", self.source)
         self.assertIn("АналитикаУчетаПоПартнерам = &Партнер", self.source)
         self.assertIn("Расчеты.СуммаОстаток", self.source)
         self.assertIn("Расчеты.ОбъектРасчетов", self.source)
@@ -569,3 +569,226 @@ class BslSyntaxTests(unittest.TestCase):
             self.assertFalse(in_string, "незакрытая строка в {}".format(
                 path.relative_to(ROOT)))
         self.assertEqual([], broken)
+
+class MetadataReferenceTests(unittest.TestCase):
+    """Все метаданные, к которым обращается код, должны существовать."""
+
+    # Объекты типовой УТ 11.5, которые расширение использует, но не объявляет.
+    # РасчетыСКлиентами - регистр из базы заказчика (скриншот структуры),
+    # остальные имена стандартные для УТ 11.5.
+    HOST_OBJECTS = {
+        "РегистрНакопления.РасчетыСКлиентами",
+        "РегистрНакопления.РасчетыСКлиентамиПоСрокам",
+        "РегистрНакопления.ТоварыНаСкладах",
+        "РегистрНакопления.ТоварыКОтгрузке",
+        "РегистрСведений.КурсыВалют",
+        "Справочник.Организации",
+        "Справочники.Организации",
+        "Справочники.Контрагенты",
+        "Справочники.Пользователи",
+        "Документ.РеализацияТоваровУслуг",
+    }
+
+    KIND_TO_METADATA = {
+        "РегистрНакопления": "AccumulationRegister",
+        "РегистрыНакопления": "AccumulationRegister",
+        "РегистрСведений": "InformationRegister",
+        "РегистрыСведений": "InformationRegister",
+        "Справочник": "Catalog",
+        "Справочники": "Catalog",
+        "Документ": "Document",
+        "Документы": "Document",
+        "Перечисление": "Enum",
+        "Перечисления": "Enum",
+        "Константа": "Constant",
+        "Константы": "Constant",
+        "Отчет": "Report",
+        "Обработка": "DataProcessor",
+        "ПланОбмена": "ExchangePlan",
+        "БизнесПроцесс": "BusinessProcess",
+        "Задача": "Task",
+    }
+
+    def declared_objects(self):
+        root = ET.parse(str(ROOT / "Configuration.xml")).getroot()
+        children = root.find("{}Configuration/{}ChildObjects".format(MD_NS, MD_NS))
+        declared = set()
+        for child in children:
+            tag = child.tag.split("}")[-1]
+            declared.add("{}|{}".format(tag, (child.text or "").strip()))
+        return declared
+
+    def test_referenced_metadata_exists(self):
+        declared = self.declared_objects()
+        unknown = []
+        pattern = re.compile(
+            r"\b(" + "|".join(self.KIND_TO_METADATA) + r")\.([A-Za-zА-Яа-яЁё_0-9]+)")
+        for path in sorted(ROOT.rglob("*.bsl")):
+            text = path.read_text(encoding="utf-8-sig")
+            for match in pattern.finditer(text):
+                reference = "{}.{}".format(match.group(1), match.group(2))
+                tag = self.KIND_TO_METADATA[match.group(1)]
+                if "{}|{}".format(tag, match.group(2)) in declared:
+                    continue
+                if reference in self.HOST_OBJECTS:
+                    continue
+                unknown.append("{}: {}".format(path.relative_to(ROOT), reference))
+        self.assertEqual([], sorted(set(unknown)))
+
+    def test_settlement_register_fields_are_known(self):
+        # Поля регистра РасчетыСКлиентами, использованные в запросах.
+        # Состав измерений и ресурсов - по фактической базе заказчика.
+        known = {
+            "АналитикаУчетаПоПартнерам", "ОбъектРасчетов", "Валюта",
+            "Сумма", "СуммаОстаток", "Регистратор", "Активность", "ВидДвижения",
+        }
+        text = module_source("CommonModules/БНС_КонтрольЛимитовСервер/Ext/Module.bsl")
+        used = set()
+        for match in re.finditer(r"Расчеты\.([A-Za-zА-Яа-яЁё_0-9]+)", text):
+            used.add(match.group(1))
+        self.assertEqual(set(), used - known, "неизвестные поля регистра: {}".format(
+            sorted(used - known)))
+
+class NameResolutionTests(unittest.TestCase):
+    """Имена методов модулей и полей регистров должны существовать."""
+
+    MODULE_PATHS = {
+        "БНС_КонтрольЛимитовСервер":
+            "CommonModules/БНС_КонтрольЛимитовСервер/Ext/Module.bsl",
+        "БНС_ИсторияФинансовогоКонтроляСервер":
+            "CommonModules/БНС_ИсторияФинансовогоКонтроляСервер/Ext/Module.bsl",
+        "БНС_ОбщегоНазначения":
+            "CommonModules/БНС_ОбщегоНазначения/Ext/Module.bsl",
+        "БНС_Подписки":
+            "CommonModules/БНС_Подписки/Ext/Module.bsl",
+        "БНС_ОповещенияКлиент":
+            "CommonModules/БНС_ОповещенияКлиент/Ext/Module.bsl",
+    }
+
+    @staticmethod
+    def without_comments(text):
+        result = []
+        for line in text.split("\n"):
+            in_string = False
+            cut = len(line)
+            position = 0
+            while position < len(line):
+                char = line[position]
+                if char == '"':
+                    if in_string and line[position + 1:position + 2] == '"':
+                        position += 2
+                        continue
+                    in_string = not in_string
+                elif not in_string and line[position:position + 2] == "//":
+                    cut = position
+                    break
+                position += 1
+            result.append(line[:cut])
+        return "\n".join(result)
+
+    @classmethod
+    def call_arguments(cls, text, open_index):
+        """Возвращает список аргументов вызова, начинающегося после "("."""
+        depth = 0
+        in_string = False
+        arguments = []
+        current = []
+        position = open_index
+        while position < len(text):
+            char = text[position]
+            if in_string:
+                if char == '"':
+                    if text[position + 1:position + 2] == '"':
+                        current.append('""')
+                        position += 2
+                        continue
+                    in_string = False
+                current.append(char)
+            elif char == '"':
+                in_string = True
+                current.append(char)
+            elif char == "(":
+                depth += 1
+                if depth > 1:
+                    current.append(char)
+            elif char == ")":
+                depth -= 1
+                if depth == 0:
+                    arguments.append("".join(current))
+                    break
+                current.append(char)
+            elif char == "," and depth == 1:
+                arguments.append("".join(current))
+                current = []
+            else:
+                current.append(char)
+            position += 1
+        return [argument.strip() for argument in arguments if argument.strip()]
+
+    def exported_methods(self):
+        methods = {}
+        for module_name, path in self.MODULE_PATHS.items():
+            text = self.without_comments(module_source(path))
+            declared = {}
+            pattern = re.compile(
+                r"^[ \t]*(Процедура|Функция)[ \t]+([A-Za-zА-Яа-яЁё_0-9]+)"
+                r"[ \t]*\(([^)]*)\)[ \t]*Экспорт", re.MULTILINE)
+            for match in pattern.finditer(text):
+                parameters = [p.strip() for p in match.group(3).split(",") if p.strip()]
+                required = len([p for p in parameters if "=" not in p])
+                declared[match.group(2)] = (required, len(parameters))
+            methods[module_name] = declared
+        return methods
+
+    def test_module_methods_exist_and_receive_valid_argument_count(self):
+        methods = self.exported_methods()
+        problems = []
+        for path in sorted(ROOT.rglob("*.bsl")):
+            text = self.without_comments(path.read_text(encoding="utf-8-sig"))
+            for module_name in methods:
+                pattern = re.compile(
+                    re.escape(module_name) + r"\.([A-Za-zА-Яа-яЁё_0-9]+)\s*\(")
+                for match in pattern.finditer(text):
+                    method = match.group(1)
+                    line = text.count("\n", 0, match.start()) + 1
+                    if method not in methods[module_name]:
+                        problems.append("{}:{}: нет метода {}.{}".format(
+                            path.relative_to(ROOT), line, module_name, method))
+                        continue
+                    required, maximum = methods[module_name][method]
+                    count = len(self.call_arguments(text, match.end() - 1))
+                    if count < required or count > maximum:
+                        problems.append(
+                            "{}:{}: {}.{} вызывается с {} аргументами, объвлено {}".format(
+                                path.relative_to(ROOT), line, module_name, method,
+                                count, maximum))
+        self.assertEqual([], problems)
+
+    def register_fields(self, relative_path):
+        root = ET.parse(str(ROOT / relative_path)).getroot()
+        fields = {"Период", "Активность", "Регистратор", "НомерСтроки", "ВидДвижения"}
+        for tag in ("Dimension", "Resource", "Attribute"):
+            for node in root.iter(MD_NS + tag):
+                name = node.find(MD_NS + "Properties/" + MD_NS + "Name")
+                if name is not None:
+                    fields.add(name.text.strip())
+        return fields
+
+    def test_record_set_fields_exist(self):
+        checks = {
+            "БНС_ЗначенияЛимитов":
+                ("CommonModules/БНС_КонтрольЛимитовСервер/Ext/Module.bsl",
+                 "InformationRegisters/БНС_ЗначенияЛимитов.xml"),
+            "БНС_ИсторияФинансовогоКонтроля":
+                ("CommonModules/БНС_ИсторияФинансовогоКонтроляСервер/Ext/Module.bsl",
+                 "InformationRegisters/БНС_ИсторияФинансовогоКонтроля.xml"),
+        }
+        for register, (module_path, register_path) in checks.items():
+            fields = self.register_fields(register_path)
+            text = self.without_comments(module_source(module_path))
+            for match in re.finditer(
+                    r"\bЗапись\.([A-Za-zА-Яа-яЁё_0-9]+)\b(?!\s*\()", text):
+                with self.subTest(register=register, field=match.group(1)):
+                    self.assertIn(match.group(1), fields,
+                                  "поле {} отсутствует в регистре {}".format(
+                                      match.group(1), register))
