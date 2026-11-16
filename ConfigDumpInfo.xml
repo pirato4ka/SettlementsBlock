@@ -6,7 +6,6 @@
 			<Metadata name="Catalog.БНС_ГруппыКлиентов.Attribute.БНС_Ответственный" id="a5f0000d-3c4d-4e5f-9a10-000000000001"/>
 			<Metadata name="Catalog.БНС_ГруппыКлиентов.Attribute.БНС_ЕстьВторойКонтур" id="a5f0000e-3c4d-4e5f-9a10-000000000001"/>
 		</Metadata>
-		<Metadata name="Catalog.БНС_ГруппыКлиентов.ObjectModule" id="a5f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="3b8e4b0d4fab63df442f40770653fcb45ad40d96"/>
 		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов" id="a6f00001-3c4d-4e5f-9a10-000000000001" configVersion="b60258c6362afee6567b5b199b21fd43578dc85e">
 			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.ОбъектКонтроля" id="a6f0000c-3c4d-4e5f-9a10-000000000001"/>
 			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Организация" id="a6f0000d-3c4d-4e5f-9a10-000000000001"/>
@@ -19,20 +18,6 @@
 			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Активна" id="a6f00016-3c4d-4e5f-9a10-000000000001"/>
 			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.Комментарий" id="a6f00017-3c4d-4e5f-9a10-000000000001"/>
 		</Metadata>
-		<Metadata name="Catalog.Валюты" id="7d7563d2-c50d-40b6-95e1-2fdeecf13959" configVersion="b173d46bc3bf7c4c0787a5fd1711d8c56dd038a5"/>
-		<Metadata name="Catalog.Контрагенты" id="59a313b2-d2cc-4ddc-a4f2-03be37c9fa78" configVersion="afa6cc74a373cc9ab2357ba4fbe3f716f1ec6e84"/>
-		<Metadata name="Catalog.Номенклатура" id="a93991f2-0ea7-43a5-a1ee-4645b68216a2" configVersion="45908473a5e2c3fa31ecc0ba15ea869c6c4b0467"/>
-		<Metadata name="Catalog.Номенклатура.Form.ФормаГруппы" id="676deffe-2980-4450-a067-0c28c7fc1343" configVersion="490eaf1866934c9be25a3c26394ce6fea8252e77"/>
-		<Metadata name="Catalog.Номенклатура.Form.ФормаГруппы.Form" id="676deffe-2980-4450-a067-0c28c7fc1343.0" configVersion="caf5d0165e7119a63d17494fa73556354d54c64e"/>
-		<Metadata name="Catalog.Партнеры" id="5bc26b42-163f-4480-9bce-12e0aa8f8b02" configVersion="da754b9ab48a7abf84191f9a9c5c5cb2d225043e">
-			<Metadata name="Catalog.Партнеры.Attribute.БНС_Ответственный" id="2a4d87ce-fc8d-428e-9187-5565fb401e23"/>
-			<Metadata name="Catalog.Партнеры.Attribute.БНС_ГруппаКлиентов" id="2f961540-15a4-4d3b-9bfb-5fd546293935"/>
-			<Metadata name="Catalog.Партнеры.Attribute.БНС_КаналПродаж" id="794d050c-9a84-4004-9ef3-00a42ac3cafb"/>
-			<Metadata name="Catalog.Партнеры.Attribute.БНС_ПарныйПартнер" id="92e59a40-c797-480d-b6ed-d5e90d13a49d"/>
-		</Metadata>
-		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента" id="947e08a3-bcbc-4a33-8e87-bb2040503d03" configVersion="bdb775a28903e7e0d6e5281018b5a53fee6abd8f"/>
-		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента.Form" id="947e08a3-bcbc-4a33-8e87-bb2040503d03.0" configVersion="38438dcf0a46189decd641f1d78affb4af9a3b70"/>
-		<Metadata name="Catalog.Пользователи" id="32a582f9-8fb9-47c2-9902-92ad7d51dedf" configVersion="6798b3fc4051996f91f749e7a3559475b5919447"/>
 		<Metadata name="CommonModule.БНС_ИсторияФинансовогоКонтроляСервер" id="a9f00005-3c4d-4e5f-9a10-000000000001"/>
 		<Metadata name="CommonModule.БНС_ИсторияФинансовогоКонтроляСервер.Module" id="a9f00005-3c4d-4e5f-9a10-000000000001.0"/>
 		<Metadata name="CommonModule.БНС_КонтрольЛимитовСервер" id="a9f00001-3c4d-4e5f-9a10-000000000001" configVersion="237417bb177f435ce484c678728fec13255b044a"/>

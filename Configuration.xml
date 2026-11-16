@@ -93,11 +93,6 @@
 			<Constant>БНС_ИспользоватьФинансовыйКонтроль</Constant>
 			<Catalog>БНС_ГруппыКлиентов</Catalog>
 			<Catalog>БНС_ЛимитыВзаиморасчетов</Catalog>
-			<Catalog>Номенклатура</Catalog>
-			<Catalog>Контрагенты</Catalog>
-			<Catalog>Валюты</Catalog>
-			<Catalog>Партнеры</Catalog>
-			<Catalog>Пользователи</Catalog>
 			<Document>ЗаказКлиента</Document>
 			<Document>РеализацияТоваровУслуг</Document>
 			<Enum>БНС_ДействияПриНарушении</Enum>

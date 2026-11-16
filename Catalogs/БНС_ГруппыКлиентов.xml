@@ -12,7 +12,7 @@
 			<Name>БНС_ГруппыКлиентов</Name>
 			<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Группы клиентов</v8:content></v8:item></Synonym>
 			<Comment>Группировка партнеров одного экономического клиента.</Comment>
-			<Hierarchical>false</Hierarchical><HierarchyType>HierarchyFoldersAndItems</HierarchyType><LimitLevel>false</LimitLevel><LevelCount>2</LevelCount><FoldersOnTop>true</FoldersOnTop>
+			<Hierarchical>false</Hierarchical><HierarchyType>HierarchyFoldersAndItems</HierarchyType><LimitLevelCount>false</LimitLevelCount><LevelCount>2</LevelCount><FoldersOnTop>true</FoldersOnTop>
 			<CodeLength>9</CodeLength><DescriptionLength>150</DescriptionLength><CodeType>String</CodeType><CodeAllowedLength>Variable</CodeAllowedLength><Autonumbering>true</Autonumbering>
 			<DefaultPresentation>AsDescription</DefaultPresentation><EditType>InDialog</EditType><DefaultObjectForm/><DefaultFolderForm/><DefaultListForm/><DefaultChoiceForm/><AuxiliaryObjectForm/><AuxiliaryFolderForm/><AuxiliaryListForm/><AuxiliaryChoiceForm/>
 			<UseStandardCommands>true</UseStandardCommands><IncludeHelpInContents>false</IncludeHelpInContents><DataLockControlMode>Managed</DataLockControlMode><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>

@@ -225,7 +225,7 @@
     </ChildItems>
   </AutoCommandBar>
   <Events>
-    <Event name="OnCreateAtServer" callType="After" xmlns="">БНС_ПриСозданииНаСервереПосле</Event>
+    <Event name="OnCreateAtServer" callType="After">БНС_ПриСозданииНаСервереПосле</Event>
   </Events>
   <ChildItems>
     <LabelField name="СтрокаИсправление" id="1473">

@@ -67,6 +67,116 @@ class XmlAndConventionsTests(unittest.TestCase):
                                      len(re.findall(close_pattern, source, re.M)))
 
 
+FOLDER_BY_KIND = {
+    "Catalog": "Catalogs",
+    "CommonModule": "CommonModules",
+    "CommonPicture": "CommonPictures",
+    "Constant": "Constants",
+    "Document": "Documents",
+    "Enum": "Enums",
+    "EventSubscription": "EventSubscriptions",
+    "FunctionalOption": "FunctionalOptions",
+    "InformationRegister": "InformationRegisters",
+    "Language": "Languages",
+    "Report": "Reports",
+    "Role": "Roles",
+    "StyleItem": "StyleItems",
+    "Subsystem": "Subsystems",
+}
+
+MODULE_FILES = {
+    "ObjectModule": "ObjectModule.bsl",
+    "ManagerModule": "ManagerModule.bsl",
+    "RecordSetModule": "RecordSetModule.bsl",
+    "Module": "Module.bsl",
+    "Rights": "Rights.xml",
+}
+
+
+def dump_info_path(metadata_name):
+    """Путь файла выгрузки для имени объекта из ConfigDumpInfo (None, если это вложенный элемент)."""
+    parts = metadata_name.split(".")
+    kind, tail = parts[0], parts[1:]
+    folder = FOLDER_BY_KIND.get(kind)
+    if folder is None or not tail:
+        return None
+    last = tail[-1]
+    if last in MODULE_FILES:
+        return ROOT / folder / tail[0] / "Ext" / MODULE_FILES[last]
+    if last == "Form" and len(tail) >= 3:
+        return ROOT / folder / tail[0] / "Forms" / tail[2] / "Ext" / "Form.xml"
+    if last == "Template" and len(tail) >= 3:
+        return ROOT / folder / tail[0] / "Templates" / tail[2] / "Ext" / "Template.xml"
+    if len(tail) > 1:
+        return None
+    return ROOT / folder / f"{tail[0]}.xml"
+
+
+class DumpIntegrityTests(unittest.TestCase):
+    def test_every_declared_object_has_a_file(self):
+        # Конфигуратор отказывается загружать выгрузку, если в ChildObjects есть
+        # объект без файла ("Файл объекта не существует").
+        root = ET.parse(ROOT / "Configuration.xml").getroot()
+        children = root.find(f"{MD_NS}Configuration/{MD_NS}ChildObjects")
+        for node in children:
+            kind = node.tag.replace(MD_NS, "")
+            with self.subTest(object=f"{kind}.{node.text}"):
+                folder = FOLDER_BY_KIND[kind]
+                self.assertTrue((ROOT / folder / f"{node.text}.xml").exists())
+
+    def test_dump_info_references_existing_files_only(self):
+        root = ET.parse(ROOT / "ConfigDumpInfo.xml").getroot()
+        dump_ns = "{http://v8.1c.ru/8.3/xcf/dumpinfo}"
+        for node in root.iter(dump_ns + "Metadata"):
+            name = node.get("name")
+            path = dump_info_path(name)
+            if path is None:
+                continue
+            with self.subTest(object=name):
+                self.assertTrue(path.exists(), f"нет файла для {name}")
+
+    def test_declared_objects_are_listed_in_dump_info(self):
+        root = ET.parse(ROOT / "ConfigDumpInfo.xml").getroot()
+        dump_ns = "{http://v8.1c.ru/8.3/xcf/dumpinfo}"
+        listed = {node.get("name") for node in root.iter(dump_ns + "Metadata")}
+        config = ET.parse(ROOT / "Configuration.xml").getroot()
+        children = config.find(f"{MD_NS}Configuration/{MD_NS}ChildObjects")
+        for node in children:
+            name = f"{node.tag.replace(MD_NS, '')}.{node.text}"
+            with self.subTest(object=name):
+                self.assertIn(name, listed)
+
+
+class PlatformPropertyTests(unittest.TestCase):
+    """Свойства, которые платформа отвергает при загрузке выгрузки."""
+
+    INVALID = ("LimitLevel", "UpdateDataHistoryVersionOnWrite")
+
+    def test_catalogs_use_valid_property_names(self):
+        for path in (ROOT / "Catalogs").glob("*.xml"):
+            source = read(path.relative_to(ROOT))
+            with self.subTest(path=path.name):
+                self.assertIn("<LimitLevelCount>", source)
+                for name in self.INVALID:
+                    self.assertNotIn(f"<{name}>", source)
+
+    def test_no_object_uses_removed_history_property(self):
+        for path in ROOT.rglob("*.xml"):
+            if ".git" in path.parts:
+                continue
+            with self.subTest(path=path.relative_to(ROOT)):
+                self.assertNotIn("<UpdateDataHistoryVersionOnWrite>",
+                                 read(path.relative_to(ROOT)))
+
+    def test_history_properties_follow_canonical_pair(self):
+        source = read("Catalogs/БНС_ЛимитыВзаиморасчетов.xml")
+        self.assertIn("<DataHistory>DontUse</DataHistory>", source)
+        self.assertIn("<UpdateDataHistoryImmediatelyAfterWrite>false"
+                      "</UpdateDataHistoryImmediatelyAfterWrite>", source)
+        self.assertIn("<ExecuteAfterWriteDataHistoryVersionProcessing>false"
+                      "</ExecuteAfterWriteDataHistoryVersionProcessing>", source)
+
+
 class MetadataTests(unittest.TestCase):
     def test_configuration_declares_all_custom_objects(self):
         root = ET.parse(ROOT / "Configuration.xml").getroot()

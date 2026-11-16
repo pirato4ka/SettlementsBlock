@@ -29,7 +29,7 @@
 			<Comment>Карточка правила финансового контроля. История значений хранится в периодическом регистре БНС_ЗначенияЛимитов.</Comment>
 			<Hierarchical>false</Hierarchical>
 			<HierarchyType>HierarchyFoldersAndItems</HierarchyType>
-			<LimitLevel>false</LimitLevel>
+			<LimitLevelCount>false</LimitLevelCount>
 			<LevelCount>2</LevelCount>
 			<FoldersOnTop>true</FoldersOnTop>
 			<CodeLength>9</CodeLength>
@@ -51,13 +51,12 @@
 			<IncludeHelpInContents>false</IncludeHelpInContents>
 			<DataLockControlMode>Managed</DataLockControlMode>
 			<FullTextSearch>Use</FullTextSearch>
-			<UpdateDataHistoryVersionOnWrite>false</UpdateDataHistoryVersionOnWrite>
 			<DataHistory>DontUse</DataHistory>
+			<UpdateDataHistoryImmediatelyAfterWrite>false</UpdateDataHistoryImmediatelyAfterWrite>
+			<ExecuteAfterWriteDataHistoryVersionProcessing>false</ExecuteAfterWriteDataHistoryVersionProcessing>
 		</Properties>
 		<ChildObjects>
-			
-			
-		<Attribute uuid="a6f0000c-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f0000c-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ОбъектКонтроля</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Объект контроля</v8:content></v8:item></Synonym>
@@ -66,7 +65,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>ShowError</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f0000d-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f0000d-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>Организация</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Организация (пусто - все организации)</v8:content></v8:item></Synonym>
@@ -75,7 +74,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00010-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00010-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ЛимитСуммы</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Лимит задолженности</v8:content></v8:item></Synonym>
@@ -84,7 +83,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00011-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00011-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>Валюта</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Валюта лимита</v8:content></v8:item></Synonym>
@@ -93,7 +92,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00012-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00012-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ДопустимаяПросрочкаДней</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Допустимая просрочка, дней</v8:content></v8:item></Synonym>
@@ -102,7 +101,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00013-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00013-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ДействиеПриНарушении</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Действие при нарушении</v8:content></v8:item></Synonym>
@@ -111,7 +110,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:nil="true"/><FillChecking>ShowError</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00014-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00014-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ДействуетС</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Действует с</v8:content></v8:item></Synonym>
@@ -120,7 +119,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:type="xs:dateTime">0001-01-01T00:00:00</FillValue><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00015-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00015-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>ДействуетПо</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Действует по</v8:content></v8:item></Synonym>
@@ -129,7 +128,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:type="xs:dateTime">0001-01-01T00:00:00</FillValue><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00016-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00016-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>Активна</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Активна</v8:content></v8:item></Synonym>
@@ -138,7 +137,7 @@
 					<PasswordMode>false</PasswordMode><Format/><EditFormat/><ToolTip/><MarkNegatives>false</MarkNegatives><Mask/><MultiLine>false</MultiLine><ExtendedEdit>false</ExtendedEdit><MinValue xsi:nil="true"/><MaxValue xsi:nil="true"/><FillFromFillingValue>false</FillFromFillingValue><FillValue xsi:type="xs:boolean">true</FillValue><FillChecking>DontCheck</FillChecking><ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems><ChoiceParameterLinks/><ChoiceParameters/><QuickChoice>Auto</QuickChoice><CreateOnInput>Auto</CreateOnInput><ChoiceForm/><LinkByType/><ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput><Indexing>DontIndex</Indexing><FullTextSearch>Use</FullTextSearch><DataHistory>DontUse</DataHistory>
 				</Properties>
 			</Attribute>
-<Attribute uuid="a6f00017-3c4d-4e5f-9a10-000000000001">
+			<Attribute uuid="a6f00017-3c4d-4e5f-9a10-000000000001">
 				<Properties>
 					<Name>Комментарий</Name>
 					<Synonym><v8:item><v8:lang>ru</v8:lang><v8:content>Комментарий</v8:content></v8:item></Synonym>
