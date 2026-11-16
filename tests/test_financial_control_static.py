@@ -332,6 +332,14 @@ class ControlLogicTests(unittest.TestCase):
         self.assertIn('Запрос.УстановитьПараметр("Партнер", Партнер);', self.source)
         self.assertIn('Запрос.УстановитьПараметр("МоментПроверки", МоментПроверки);', self.source)
 
+    def test_save_does_not_interrupt_the_user(self):
+        # При обычной записи контроль только фиксирует статус: сообщения и запрет
+        # остаются на проведение.
+        block = self.source[self.source.index("Процедура ЗаполнитьСтатусПриЗаписи"):]
+        block = block[:block.index("КонецПроцедуры")]
+        self.assertIn("ПрименитьРезультат(ДокументОбъект, Результат, Ложь, Ложь)", block)
+        self.assertNotIn("ВывестиСообщение", block)
+
     def test_debt_does_not_double_count_negative_balances(self):
         self.assertIn("Результат.Долг = Макс(0, Долг);", self.source)
 
