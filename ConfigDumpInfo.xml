@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.20">
+	<ConfigVersions>
+		<Metadata name="Catalog.БНС_ГруппыКлиентов" id="a5f00001-3c4d-4e5f-9a10-000000000001" configVersion="5a40009702a71e128b99d9df55e3a294d23e4db8">
+			<Metadata name="Catalog.БНС_ГруппыКлиентов.Attribute.БНС_ИНН" id="a5f0000c-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ГруппыКлиентов.Attribute.БНС_Ответственный" id="a5f0000d-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ГруппыКлиентов.Attribute.БНС_ЕстьВторойКонтур" id="a5f0000e-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Catalog.БНС_ГруппыКлиентов.ObjectModule" id="a5f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="3b8e4b0d4fab63df442f40770653fcb45ad40d96"/>
+		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов" id="a6f00001-3c4d-4e5f-9a10-000000000001" configVersion="b60258c6362afee6567b5b199b21fd43578dc85e">
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.БНС_ОбъектКонтроля" id="a6f0000c-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.Attribute.БНС_Активна" id="a6f0000e-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Catalog.Валюты" id="7d7563d2-c50d-40b6-95e1-2fdeecf13959" configVersion="b173d46bc3bf7c4c0787a5fd1711d8c56dd038a5"/>
+		<Metadata name="Catalog.Контрагенты" id="59a313b2-d2cc-4ddc-a4f2-03be37c9fa78" configVersion="afa6cc74a373cc9ab2357ba4fbe3f716f1ec6e84"/>
+		<Metadata name="Catalog.Номенклатура" id="a93991f2-0ea7-43a5-a1ee-4645b68216a2" configVersion="45908473a5e2c3fa31ecc0ba15ea869c6c4b0467"/>
+		<Metadata name="Catalog.Номенклатура.Form.ФормаГруппы" id="676deffe-2980-4450-a067-0c28c7fc1343" configVersion="490eaf1866934c9be25a3c26394ce6fea8252e77"/>
+		<Metadata name="Catalog.Номенклатура.Form.ФормаГруппы.Form" id="676deffe-2980-4450-a067-0c28c7fc1343.0" configVersion="caf5d0165e7119a63d17494fa73556354d54c64e"/>
+		<Metadata name="Catalog.Партнеры" id="5bc26b42-163f-4480-9bce-12e0aa8f8b02" configVersion="da754b9ab48a7abf84191f9a9c5c5cb2d225043e">
+			<Metadata name="Catalog.Партнеры.Attribute.БНС_Ответственный" id="2a4d87ce-fc8d-428e-9187-5565fb401e23"/>
+			<Metadata name="Catalog.Партнеры.Attribute.БНС_ГруппаКлиентов" id="2f961540-15a4-4d3b-9bfb-5fd546293935"/>
+			<Metadata name="Catalog.Партнеры.Attribute.БНС_КаналПродаж" id="794d050c-9a84-4004-9ef3-00a42ac3cafb"/>
+			<Metadata name="Catalog.Партнеры.Attribute.БНС_ПарныйПартнер" id="92e59a40-c797-480d-b6ed-d5e90d13a49d"/>
+		</Metadata>
+		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента" id="947e08a3-bcbc-4a33-8e87-bb2040503d03" configVersion="bdb775a28903e7e0d6e5281018b5a53fee6abd8f"/>
+		<Metadata name="Catalog.Партнеры.Form.ФормаЭлемента.Form" id="947e08a3-bcbc-4a33-8e87-bb2040503d03.0" configVersion="38438dcf0a46189decd641f1d78affb4af9a3b70"/>
+		<Metadata name="Catalog.Пользователи" id="32a582f9-8fb9-47c2-9902-92ad7d51dedf" configVersion="6798b3fc4051996f91f749e7a3559475b5919447"/>
+		<Metadata name="CommonModule.БНС_КонтрольЛимитовСервер" id="a9f00001-3c4d-4e5f-9a10-000000000001" configVersion="237417bb177f435ce484c678728fec13255b044a"/>
+		<Metadata name="CommonModule.БНС_КонтрольЛимитовСервер.Module" id="a9f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="4f74d0bb1d39bdad5475a01f636eebacddb2105e"/>
+		<Metadata name="CommonModule.БНС_ОбщегоНазначения" id="a9f00002-3c4d-4e5f-9a10-000000000001" configVersion="a22055b80318bd35d67c7e7a75ee05ea5b7fca8e"/>
+		<Metadata name="CommonModule.БНС_ОбщегоНазначения.Module" id="a9f00002-3c4d-4e5f-9a10-000000000001.0" configVersion="4dad339a9ce2b3ba711a649a51d7bbfd00714a8c"/>
+		<Metadata name="CommonModule.БНС_ОповещенияКлиент" id="a9f00004-3c4d-4e5f-9a10-000000000001" configVersion="ebadad252bbc2aef884a816e0c8302cd56a3f0f7"/>
+		<Metadata name="CommonModule.БНС_ОповещенияКлиент.Module" id="a9f00004-3c4d-4e5f-9a10-000000000001.0" configVersion="f3e6516ced05f36d56832eed5b9f9f68a22e6db9"/>
+		<Metadata name="CommonModule.БНС_Подписки" id="a9f00003-3c4d-4e5f-9a10-000000000001" configVersion="23e8fd7040d4de686c1609ab900e3f9cd2e95a84"/>
+		<Metadata name="CommonModule.БНС_Подписки.Module" id="a9f00003-3c4d-4e5f-9a10-000000000001.0" configVersion="8b8f7032f25f49f65ade0f094c11f7e3740d0870"/>
+		<Metadata name="CommonModule.ДоставкаТоваров" id="784768d8-df94-4ac9-a02a-9c2400b57e9b" configVersion="261c25082f68c31467d8e69b2eeff514edda091c"/>
+		<Metadata name="CommonModule.ДоставкаТоваров.Module" id="784768d8-df94-4ac9-a02a-9c2400b57e9b.0" configVersion="d0cfd1fe7b1083085426d7e16ea9a9dcef29bdef"/>
+		<Metadata name="CommonPicture.Внимание16" id="57120f1f-3aba-4765-9377-0c67e0b60399" configVersion="0ebd420cc40f78275b0aea26cdaeb7785d37bf59"/>
+		<Metadata name="CommonPicture.ЗаполнитьПоШаблону" id="f78b404f-bf18-473f-a23e-438d809ac38f" configVersion="823673d78b66ad2e98dbf80beeaf03c7eb2e0a25"/>
+		<Metadata name="CommonPicture.ЗаполнитьФорму" id="fc0c2c71-018b-4040-86ee-23edf3f8edfc" configVersion="9bd448207d059922875182a3069cb4d3cd25df64"/>
+		<Metadata name="CommonPicture.Набор" id="13e96065-5326-4869-83a0-749df1164ee5" configVersion="50cb21c4c99e55966578628822a64f8198e98a87"/>
+		<Metadata name="CommonPicture.Наборы" id="aed0e8a8-43ff-411e-a95b-5d8b9aff7bea" configVersion="2a213dae8484e4d7cb64794b7909b9f26c22bc13"/>
+		<Metadata name="CommonPicture.Отчеты" id="6e4e56bc-6730-4ee3-b248-d84f99bed165" configVersion="a84e46997760b3c173b5b62c01e708f3c20b2d4e"/>
+		<Metadata name="CommonPicture.СерииНоменклатурыКолонкаСтатусов" id="d4a4af32-2989-4294-bbb0-2d537eff5a7d" configVersion="a4233e22da0e29d71e6a762c84ff3334ab8b06a9"/>
+		<Metadata name="CommonPicture.СостоянияСтрок" id="7a2b5ac9-488d-4b8f-b088-bc2f4a3d950c" configVersion="b0e3ec6ca4f737ba0948908cc5d1bfedd1f0ebc4"/>
+		<Metadata name="CommonPicture.СтатусыУказанияСерий" id="549590ae-47b1-4349-9b85-16767c29dd4d" configVersion="e1bb9e4e874f6c96995775df2563b4fda933d644"/>
+		<Metadata name="Configuration.БНС_АдаптацияКонфигурации" id="1a1899e1-a61a-4048-9003-2812e56a361e" configVersion="51ec3003e9a1ee74892d279dd5ea118372bb2471"/>
+		<Metadata name="Constant.БНС_ИспользоватьФинансовыйКонтроль" id="a4f00001-3c4d-4e5f-9a10-000000000001" configVersion="77525e028e3ef6632d98d991aaf7f7c900055745"/>
+		<Metadata name="Document.ЗаказКлиента" id="2d9fedac-02cb-424d-9679-9ba1f51d4ec9" configVersion="30fe1d60b60e5e8d000d3fde182ad0fdf2c62cf9">
+			<Metadata name="Document.ЗаказКлиента.Attribute.АдресДоставкиЗначение" id="6f959147-3009-4899-9f59-f13ebc94d11a"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_СтатусФинансовогоКонтроля" id="b9f00011-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_ДолгНаМоментПроверки" id="b9f00012-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_ЛимитНаМоментПроверки" id="b9f00013-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_ПревышениеСуммы" id="b9f00014-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_МаксПросрочкаДней" id="b9f00015-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_ПрименимыйЛимит" id="b9f00016-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_РазрешилОтгрузку" id="b9f00017-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_ДатаРазрешения" id="b9f00018-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.БНС_КомментарийКонтролера" id="b9f00019-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.АдресДоставки" id="cec072bc-1696-45a3-827b-bc04bc6751e6"/>
+			<Metadata name="Document.ЗаказКлиента.Attribute.АдресДоставкиЗначенияПолей" id="ea4dfa61-7fbe-4f86-b5ba-683c57f9f61c"/>
+		</Metadata>
+		<Metadata name="Document.ЗаказКлиента.Form.ФормаДокумента" id="90f3cfa9-842c-4982-9dde-255cc0891cc0" configVersion="9670b58d5d480a8f5f571ec78cffc00505528d6c"/>
+		<Metadata name="Document.ЗаказКлиента.Form.ФормаДокумента.Form" id="90f3cfa9-842c-4982-9dde-255cc0891cc0.0" configVersion="e2f35a060aa8174e1619d19e229a6e30c28796d6"/>
+		<Metadata name="Document.РеализацияТоваровУслуг" id="473d20d9-aedd-43bc-9fe2-820345007280" configVersion="06faecc1f49de26fdc2ab12c9ac569087c65e434">
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_СтатусФинансовогоКонтроля" id="b9f00021-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_ДолгНаМоментПроверки" id="b9f00022-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_ЛимитНаМоментПроверки" id="b9f00023-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_ПревышениеСуммы" id="b9f00024-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_МаксПросрочкаДней" id="b9f00025-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_ПрименимыйЛимит" id="b9f00026-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_РазрешилОтгрузку" id="b9f00027-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_ДатаРазрешения" id="b9f00028-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Document.РеализацияТоваровУслуг.Attribute.БНС_КомментарийКонтролера" id="b9f00029-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Document.РеализацияТоваровУслуг.Form.ФормаДокумента" id="2309d9cb-9bb3-4898-8391-5a1ae7603c73" configVersion="17bd1c56db63737311e07fcfd7ebce5a2afb6213"/>
+		<Metadata name="Document.РеализацияТоваровУслуг.Form.ФормаДокумента.Form" id="2309d9cb-9bb3-4898-8391-5a1ae7603c73.0" configVersion="57e893ca0d16b28f23c20c7b00f2371382c27c9e"/>
+		<Metadata name="Enum.БНС_ДействияПриНарушении" id="a1f00001-3c4d-4e5f-9a10-000000000001" configVersion="657c1162dd1493881bcbf2caf73f4cf5d17e1b27">
+			<Metadata name="Enum.БНС_ДействияПриНарушении.EnumValue.Запретить" id="a1f00008-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_ДействияПриНарушении.EnumValue.Предупредить" id="a1f00009-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Enum.БНС_КаналыПродаж" id="a3f00001-3c4d-4e5f-9a10-000000000001" configVersion="e943fa4e5af5d63bd4d6bf5cdde3c46a48449a82">
+			<Metadata name="Enum.БНС_КаналыПродаж.EnumValue.Легальный" id="a3f00008-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_КаналыПродаж.EnumValue.Теневой" id="a3f00009-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_КаналыПродаж.EnumValue.Внутренний" id="a3f0000a-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Enum.БНС_СтатусыФинансовогоКонтроля" id="a2f00001-3c4d-4e5f-9a10-000000000001" configVersion="036622739a9a904e770ba451e87df9f5a0e31d73">
+			<Metadata name="Enum.БНС_СтатусыФинансовогоКонтроля.EnumValue.Пусто" id="a2f00008-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_СтатусыФинансовогоКонтроля.EnumValue.НаПроверке" id="a2f00009-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_СтатусыФинансовогоКонтроля.EnumValue.ОтгрузкаРазрешена" id="a2f0000a-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="Enum.БНС_СтатусыФинансовогоКонтроля.EnumValue.ОтгрузкаЗапрещена" id="a2f0000b-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Enum.ВариантыВыбытияМаркируемойПродукции" id="15eccaf8-7442-4aba-a148-4e0eae9c6657" configVersion="983d5826565f4237d30528a40e25c5a65287d893">
+			<Metadata name="Enum.ВариантыВыбытияМаркируемойПродукции.EnumValue.ИспользованиеПокупателемДляСобственныхНужд" id="7512546a-3b3b-448d-9949-eba707ad5364"/>
+		</Metadata>
+		<Metadata name="Enum.ВариантыОтправкиЭлектронногоЧекаПокупателю" id="8e678266-e989-453d-97c6-053897b6d359" configVersion="7bbd1bb461419f376ca090ec9a8abcf5af67aaf1">
+			<Metadata name="Enum.ВариантыОтправкиЭлектронногоЧекаПокупателю.EnumValue.ОтправитьEmail" id="1f553da2-24e0-48cb-b020-02cf51b4268f"/>
+			<Metadata name="Enum.ВариантыОтправкиЭлектронногоЧекаПокупателю.EnumValue.НеОтправлять" id="3574d1c0-46ad-4f33-9992-0dfadebe3f65"/>
+			<Metadata name="Enum.ВариантыОтправкиЭлектронногоЧекаПокупателю.EnumValue.ОтправитьSMS" id="45087581-96bd-4f38-876e-8098f6462eff"/>
+		</Metadata>
+		<Metadata name="Enum.ВариантыОформленияПродажи" id="f625518b-3ebf-4109-942c-9f78036ac018" configVersion="3ec424095651e25b6069ac4c8f2ec0a7e2a7d47f">
+			<Metadata name="Enum.ВариантыОформленияПродажи.EnumValue.АктНаПередачуПрав" id="27fc2de0-10b9-425b-99a0-e07443864a03"/>
+			<Metadata name="Enum.ВариантыОформленияПродажи.EnumValue.РеализацияТоваровУслуг" id="4be61c4c-a6ec-474e-9126-1f246af61d7f"/>
+		</Metadata>
+		<Metadata name="Enum.СпособыДоставки" id="8510d3ad-af48-45b2-9f31-2f382c14ac23" configVersion="df06a7f46368c02e370e607a5ae769694cb82f03">
+			<Metadata name="Enum.СпособыДоставки.EnumValue.СиламиПеревозчикаПоАдресу" id="09fa736c-6d00-49c1-8d79-e2fd7bda02f7"/>
+			<Metadata name="Enum.СпособыДоставки.EnumValue.КПолучателюОпределяетСлужбаДоставки" id="1a3d8b10-138f-425b-ae9f-4247d1757f71"/>
+			<Metadata name="Enum.СпособыДоставки.EnumValue.ДоКлиента" id="4e7f6fa5-88db-49d5-b0ea-888de19e6555"/>
+			<Metadata name="Enum.СпособыДоставки.EnumValue.СиламиПеревозчика" id="5b12d392-f09d-463a-9061-b506924d9edb"/>
+			<Metadata name="Enum.СпособыДоставки.EnumValue.Самовывоз" id="e9b4a42e-4461-41c8-9d3c-3a77cc7be1f2"/>
+		</Metadata>
+		<Metadata name="Enum.СтатусыДействияВидовЦен" id="8541fcb6-9940-4ca2-8876-2a81ab4f13a2" configVersion="ef11e151c09b6fb6959ac141e8a1b8b4dc63e16d">
+			<Metadata name="Enum.СтатусыДействияВидовЦен.EnumValue.Действует" id="d9b5606c-0f38-4631-8e76-6411c1d79e6e"/>
+		</Metadata>
+		<Metadata name="Enum.ТипыНалогообложенияНДС" id="3bb2956c-4c22-4adb-b867-fbe66910c164" configVersion="919719eefe68287b45a70acce33626abe4b565a9">
+			<Metadata name="Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаОблагаетсяЕНВД" id="2227d2c7-dd1d-42bf-84aa-7c09f2127042"/>
+			<Metadata name="Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаНеОблагаетсяНДС" id="6d8e2008-caa9-45be-93f1-0f5a2cc0d047"/>
+			<Metadata name="Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаОблагаетсяНДС" id="cf648ba3-15cd-463c-ba5e-7cc4ba6ad3eb"/>
+			<Metadata name="Enum.ТипыНалогообложенияНДС.EnumValue.ПродажаНаЭкспорт" id="edde6ebc-6822-4408-9b6f-42be4e9c1f9b"/>
+		</Metadata>
+		<Metadata name="Enum.ХозяйственныеОперации" id="891fe15d-5e8e-4880-8441-63c615d09904" configVersion="574489dde23e909e501aa24d4cca7abf2af1ab34">
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.РеализацияЧерезКомиссионераБезПереходаПраваСобственности" id="0ee6d081-263d-46ab-a378-886cec75022e"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.ПереходПраваСобственности" id="11ab0dea-c39b-493b-bdf9-c0274448e5a5"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.РеализацияКлиенту" id="6c6b5516-d966-4595-9520-4d5ba16eb124"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.ПередачаНаКомиссию" id="837f604d-917e-4f22-813f-87a97d1d3e77"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.РеализацияБезПереходаПраваСобственности" id="a356eed9-8414-43a6-9547-0d06ed5814fa"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.РеализацияКлиентуРеглУчет" id="ddef249d-4925-4bf3-b870-d18a7bed518f"/>
+			<Metadata name="Enum.ХозяйственныеОперации.EnumValue.РеализацияЧерезКомиссионера" id="e3e21f96-ef4f-4787-8368-b7f2778577ed"/>
+		</Metadata>
+		<Metadata name="EventSubscription.БНС_ЗащитаСтатусаФинансовогоКонтроля" id="abf00002-3c4d-4e5f-9a10-000000000001" configVersion="603067d9cafa4f75b2a524597befd93f76687093"/>
+		<Metadata name="EventSubscription.БНС_ПроверкаЛимитаПриПроведении" id="abf00001-3c4d-4e5f-9a10-000000000001" configVersion="a558c92215fa1d4dfa4e5b8505a23bcdeccace3e"/>
+		<Metadata name="FunctionalOption.БНС_ФинансовыйКонтроль" id="edfcab31-dedb-4a1b-a2c7-249e146e6f33" configVersion="f155fb47edb38ae4bebd84a3bac4d656af5b3438"/>
+		<Metadata name="InformationRegister.БНС_ЗначенияЛимитов" id="a7f00001-3c4d-4e5f-9a10-000000000001" configVersion="ddcd62b5ccb65d31d9c4916f0bc623a454ee92a3">
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Dimension.Лимит" id="a7f00010-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ЛимитСуммы" id="a7f00020-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Валюта" id="a7f00021-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ДопустимаяПросрочкаДней" id="a7f00022-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ДействиеПриНарушении" id="a7f00023-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.ДействуетПо" id="a7f00024-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ЗначенияЛимитов.Resource.Автор" id="a7f00025-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля" id="a8f00001-3c4d-4e5f-9a10-000000000001" configVersion="f05984bba88440e632b4be48f81c2e6814ef9516">
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Dimension.Документ" id="a8f00010-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.Статус" id="a8f00020-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.ПрименимыйЛимит" id="a8f00021-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.ДействиеПриНарушении" id="a8f00022-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.ЛимитСуммы" id="a8f00023-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.Долг" id="a8f00024-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.СуммаДокумента" id="a8f00025-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.Превышение" id="a8f00026-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.МаксПросрочкаДней" id="a8f00027-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.ДокументПросрочки" id="a8f00028-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.СуммаПросрочки" id="a8f00029-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.Пользователь" id="a8f0002a-3c4d-4e5f-9a10-000000000001"/>
+			<Metadata name="InformationRegister.БНС_ИсторияФинансовогоКонтроля.Resource.Комментарий" id="a8f0002b-3c4d-4e5f-9a10-000000000001"/>
+		</Metadata>
+		<Metadata name="Language.Русский" id="77ca21eb-81ff-4651-8b98-070c9c9afea5" configVersion="2cb5f522163be750585023662b1637b749f5d01e"/>
+		<Metadata name="Report.БНС_РасшифровкаФинансовогоКонтроля" id="acf00001-3c4d-4e5f-9a10-000000000001" configVersion="0ce7458c25857ddc1fb93ad8ea276733abb57dd0"/>
+		<Metadata name="Report.БНС_РасшифровкаФинансовогоКонтроля.Template.ОсновнаяСхемаКомпоновкиДанных" id="acf00010-3c4d-4e5f-9a10-000000000001" configVersion="845cb708e9c944e941b09e23c23b505c262540a4"/>
+		<Metadata name="Report.БНС_РасшифровкаФинансовогоКонтроля.Template.ОсновнаяСхемаКомпоновкиДанных.Template" id="acf00010-3c4d-4e5f-9a10-000000000001.0" configVersion="2e3d4cba05e58c6f86abc4e830eee391c5ea7459"/>
+		<Metadata name="Role.БНС_ФинансовыйКонтроль_Изменение" id="70125bca-6828-4f6f-822d-74d5d6fdaa8f" configVersion="1bd46cb8031ad6ed8df7a17f2c3c53f178ccfeb6"/>
+		<Metadata name="Role.БНС_ФинансовыйКонтроль_Изменение.Rights" id="70125bca-6828-4f6f-822d-74d5d6fdaa8f.0" configVersion="c16e08423d8bc0ff2cbc557834b2b484c11bbea8"/>
+		<Metadata name="Role.БНС_ФинансовыйКонтроль_Просмотр" id="ee355048-7d58-4a85-9a32-6ad23bc0b77f" configVersion="cb0fb14e5260f5747cc6f41b287f8425e85d282f"/>
+		<Metadata name="Role.БНС_ФинансовыйКонтроль_Просмотр.Rights" id="ee355048-7d58-4a85-9a32-6ad23bc0b77f.0" configVersion="42a2d4e11c0949c5e4cb17051bd9c7b72360b04b"/>
+		<Metadata name="StyleItem.ГиперссылкаЦвет" id="ca533a5a-fbe2-4e8c-9e64-c593d1365478" configVersion="7c4aa069c1d95b53b6f1b9c10ff144f1c2b0b2ee"/>
+		<Metadata name="StyleItem.ИтогиФон" id="e7998c41-267c-4d9f-9fbe-e6f71e9213c5" configVersion="3cc0260fc4558f8e4feef5b5b1c8171f2d77c526"/>
+		<Metadata name="StyleItem.ТекстИнформационнойНадписи" id="0acc0938-6333-42d6-ba65-344c298c57fe" configVersion="d53615dd9d2324d6432c0af0b90735fadbec455a"/>
+		<Metadata name="StyleItem.ЦветТекстаНевыбраннойКартинки" id="82f7d326-d90c-460e-b5da-718b36a05dfd" configVersion="ef499d615e650eed225c70bd621aa1d4b79ee3be"/>
+		<Metadata name="StyleItem.ЦветТекстаПроблема" id="26fa6500-597d-4f2f-ad67-9c30a516b557" configVersion="a53d9a3b521476e25540b05bd780b02bc06344ef"/>
+		<Metadata name="StyleItem.ЦветФонаВыделения" id="c3ab7770-fca1-4ec6-82a5-865946e9d35b" configVersion="552eb8fd51543296a643c0e7003665eda002c2d3"/>
+		<Metadata name="Subsystem.БНС_ФинансовыйКонтроль" id="aaf00001-3c4d-4e5f-9a10-000000000001" configVersion="d98ae92aa1f385ec287f4c89a0b1c5e4571760f4"/>
+		<Metadata name="Catalog.БНС_ЛимитыВзаиморасчетов.ObjectModule" id="a6f00001-3c4d-4e5f-9a10-000000000001.0" configVersion="0123456789abcdef0123456789abcdef01234567"/>
+	</ConfigVersions>
+</ConfigDumpInfo>
