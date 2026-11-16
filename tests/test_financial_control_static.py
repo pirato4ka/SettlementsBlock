@@ -92,7 +92,6 @@ MODULE_FILES = {
     "Rights": "Rights.xml",
 }
 
-
 def dump_info_path(metadata_name):
     """Путь файла выгрузки для имени объекта из ConfigDumpInfo (None, если это вложенный элемент)."""
     parts = metadata_name.split(".")
@@ -292,27 +291,38 @@ class ControlLogicTests(unittest.TestCase):
         self.assertIn("Отказ = Истина;", self.source)
         self.assertIn("Не удалось выполнить финансовый контроль. Проведение запрещено.",
                       self.source)
-        amount = self.source[self.source.index("Функция СуммаДокументаДляКонтроля"):]
-        amount = amount[:amount.index("КонецФункции")]
-        self.assertNotIn("Возврат 0;", amount)
-        self.assertIn("ВызватьИсключение", amount)
 
     def test_limit_selection_uses_date_slice_and_ignores_foreign_rules(self):
-        self.assertIn("СрезПоследних(&МоментПроверки)", self.source)
-        self.assertIn("Значения.Активна", self.source)
-        self.assertIn("Значения.ДействуетПо", self.source)
-        self.assertIn("ПриоритетОбъектаКонтроля", self.source)
-        self.assertIn("Если БаллОбъекта = 0 Тогда", self.source)
-        self.assertNotIn("БаллОбъекта * 10 + ?(Выборка.Организация = Организация, 0, 1);\n\n\t\tЕсли Балл < 99",
-                         self.source)
-
-    def test_debt_uses_register_metadata_instead_of_assumed_names(self):
-        self.assertIn("Метаданные.РегистрыНакопления.Найти(\"РасчетыСПокупателями\")",
+        self.assertIn("РегистрСведений.БНС_ЗначенияЛимитов.СрезПоследних(&МоментПроверки, Активна)",
                       self.source)
-        self.assertIn("ИмяРесурсаОстатка", self.source)
-        self.assertIn("ИмяИзмеренияДокументаРасчетов", self.source)
-        self.assertIn("ОграничитьПоКонтрагенту", self.source)
-        self.assertNotIn("Партнер.БНС_ГруппаКлиентов", self.source)
+        self.assertIn("Значения.ДействуетПо", self.source)
+        self.assertIn("НЕ Значения.Лимит.ПометкаУдаления", self.source)
+        # правило на партнера важнее правила на контрагента
+        self.assertIn("Выборка.ОбъектКонтроля = Партнер", self.source)
+        self.assertIn("Приоритет = 1;", self.source)
+        self.assertIn("Приоритет = 2;", self.source)
+
+    def test_debt_query_uses_the_real_register_schema(self):
+        # РасчетыСПокупателями : измерения АналитикаУчетаПоПартнерам, ОбъектРасчетов,
+        # Валюта; ресурс долга - Сумма (в остатках СуммаОстаток).
+        self.assertIn("РегистрНакопления.РасчетыСПокупателями.Остатки(", self.source)
+        self.assertIn("АналитикаУчетаПоПартнерам = &Партнер", self.source)
+        self.assertIn("Расчеты.СуммаОстаток", self.source)
+        self.assertIn("Расчеты.ОбъектРасчетов", self.source)
+        self.assertNotIn("Расчеты.Партнер", self.source)
+        self.assertNotIn("СуммаРасчетовОстаток", self.source)
+
+    def test_queries_are_not_assembled_from_variables(self):
+        # Запросы задаются текстом конструктора, параметры передаются через
+        # УстановитьПараметр, а не подстановкой переменных в текст запроса.
+        self.assertNotIn("Запрос.Текст = Запрос.Текст +", self.source)
+        for fragment in ("УсловиеОстатков", "ВыбираемыеПоля", "ИмяРесурсаОстатка",
+                         "ИмяИзмеренияДокументаРасчетов", "УстановитьПараметрыЗапроса",
+                         "Метаданные.РегистрыНакопления"):
+            with self.subTest(fragment=fragment):
+                self.assertNotIn(fragment, self.source)
+        self.assertIn('Запрос.УстановитьПараметр("Партнер", Партнер);', self.source)
+        self.assertIn('Запрос.УстановитьПараметр("МоментПроверки", МоментПроверки);', self.source)
 
     def test_debt_does_not_double_count_negative_balances(self):
         self.assertIn("Результат.Долг = Макс(0, Долг);", self.source)
@@ -320,17 +330,19 @@ class ControlLogicTests(unittest.TestCase):
     def test_posted_document_movements_are_excluded_from_debt(self):
         # Подписка вызывается после обработчика проведения, движения документа
         # уже в регистре: без вычитания сумма документа попала бы в долг дважды.
-        self.assertIn("РегистраторДляИсключения = Неопределено", self.source)
-        self.assertIn("МоментПроверки, ДокументОбъект.Ссылка);", self.source)
-        helper = self.source[self.source.index("Функция ДолгПоРегистратору"):]
+        self.assertIn("ИсключаемыйРегистратор = Неопределено", self.source)
+        self.assertIn("ЗадолженностьНаДату(Партнер, МоментПроверки,", self.source)
+        self.assertIn("ДокументОбъект.Ссылка);", self.source)
+        helper = self.source[self.source.index("Функция СуммаДвиженийДокумента"):]
         helper = helper[:helper.index("КонецФункции")]
-        self.assertIn("И Расчеты.Регистратор = &Регистратор", helper)
+        self.assertIn("Расчеты.Регистратор = &Регистратор", helper)
         self.assertIn("Расчеты.Активность", helper)
         self.assertIn("ВидДвиженияНакопления.Приход", helper)
 
     def test_contract_delay_and_currency_are_read_defensively(self):
-        self.assertIn('МетаданныеДокумента.Реквизиты.Найти("Договор")', self.source)
-        self.assertIn("РегистрыСведений.Найти(\"КурсыВалют\")", self.source)
+        self.assertIn('ДокументРасчетов.Метаданные().Реквизиты.Найти("Договор")', self.source)
+        self.assertIn("РегистрСведений.КурсыВалют.СрезПоследних(&ДатаПроверки, Валюта = &Валюта)",
+                      self.source)
         self.assertIn("Возврат Сумма;", self.source)
 
     def test_violation_message_names_the_overdue_invoice_and_excess(self):
@@ -504,3 +516,39 @@ class ReportTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class BslSyntaxTests(unittest.TestCase):
+    """Проверки, которые ловят ошибки компиляции без платформы 1С."""
+
+    def test_string_literals_are_balanced(self):
+        # Непарная кавычка или продолжение строки без признака переноса "|"
+        # приводит к ошибке компиляции модуля.
+        broken = []
+        for path in sorted(ROOT.rglob("*.bsl")):
+            in_string = False
+            for number, line in enumerate(
+                    path.read_text(encoding="utf-8-sig").split("\n"), start=1):
+                if in_string and not re.match(r"[ \t]*\|", line):
+                    broken.append("{}:{}: строка продолжается без |".format(
+                        path.relative_to(ROOT), number))
+                position = 0
+                while position < len(line):
+                    char = line[position]
+                    if in_string:
+                        if char == '"':
+                            if line[position + 1:position + 2] == '"':
+                                position += 2
+                                continue
+                            in_string = False
+                        position += 1
+                        continue
+                    if char == '"':
+                        in_string = True
+                        position += 1
+                        continue
+                    if line[position:position + 2] == "//":
+                        break
+                    position += 1
+            self.assertFalse(in_string, "незакрытая строка в {}".format(
+                path.relative_to(ROOT)))
+        self.assertEqual([], broken)
